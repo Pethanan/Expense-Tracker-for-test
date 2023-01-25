@@ -13,7 +13,7 @@ async function addItem(e)
     document.getElementById("description").value = "";
 
     const item = {name, amount, description};
-    const itemRes = await axios.post("https://crudcrud.com/api/0ab22d87c1cd482781825ab80c5b339a/data", item);
+    const itemRes = await axios.post("https://crudcrud.com/api/5b66cc9225f24fa2adeb3f71d5d9a6ec/data", item);
     showItemOnScreen(itemRes.data);
     console.log(itemRes.data)
 }
@@ -42,16 +42,14 @@ async function deleteItem(id)
 {
     const itemToBeDeleted = document.getElementById(id);
     document.getElementById("output").removeChild(itemToBeDeleted);
-    await axios.delete(`https://crudcrud.com/api/0ab22d87c1cd482781825ab80c5b339a/data/${id}`);
+    await axios.delete(`https://crudcrud.com/api/5b66cc9225f24fa2adeb3f71d5d9a6ec/data/${id}`);
 }
 
 window.addEventListener("DOMContentLoaded", async()=> {
-    const reponse = await axios.get(`https://crudcrud.com/api/0ab22d87c1cd482781825ab80c5b339a/data`);
+    const reponse = await axios.get(`https://crudcrud.com/api/5b66cc9225f24fa2adeb3f71d5d9a6ec/data`);
 
     for (let item of  reponse.data)
     {
         showItemOnScreen(item);
     }
 })
-
-
